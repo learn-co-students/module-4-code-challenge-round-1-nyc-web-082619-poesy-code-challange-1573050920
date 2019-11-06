@@ -9,7 +9,7 @@ class PoemsContainer extends React.Component {
         this.props.poems.map(
             poemObj => {
               return(
-                <Poem {...poemObj}/>
+                <Poem  {...poemObj}/> //addToFaves={this.props.addToFaves}
               )
             }
           )

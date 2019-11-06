@@ -6,13 +6,19 @@ class Poem extends React.Component {
     clicked: false
   }
 
-  clickHandler = event => {
+  boxClickHandler = event => {
     this.setState({clicked: !this.state.clicked})
   }
 
+
+  // faveHandler = event => {
+  //   this.props.addToFaves(this)
+  // }
+  // <button onClick={this.faveHandler}>Add To Faves</button>
+
   render(){
     return (
-      <div onClick={this.clickHandler} style={(this.state.clicked ? {color: "red"} : {color: "black"})}>
+      <div onClick={this.boxClickHandler} style={(this.state.clicked ? {color: "red"} : {color: "black"})}>
         <h3>{this.props.title}</h3>
         <p>{this.props.content}</p>
         <strong>- By {this.props.author}</strong>

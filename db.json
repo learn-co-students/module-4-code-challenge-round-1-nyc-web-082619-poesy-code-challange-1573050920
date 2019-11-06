@@ -35,6 +35,12 @@
       "text": "poem text",
       "author": null,
       "id": 6
+    },
+    {
+      "title": "yes",
+      "text": "cool",
+      "author": "hello",
+      "id": 7
     }
   ]
 }

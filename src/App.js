@@ -9,7 +9,8 @@ class App extends React.Component {
 
   state = {
     loggedInUser: null,
-    poems: null
+    poems: null,
+    favePoems: []
   }
 
   componentDidMount(){
@@ -45,6 +46,12 @@ class App extends React.Component {
     )
   }
 
+  addToFaves = poem => {
+    this.state.favePoems.push(poem)
+  }
+//addToFaves={this.state.addToFaves}
+/* <PoemsContainer poems={this.state.favePoems} /> */
+
   render(){
     console.log("RENDERING APP", this.state)
     return (
@@ -53,7 +60,7 @@ class App extends React.Component {
           {this.renderUser()}
           <NewPoemForm postPoem={this.postPoem}/>
         </div>
-        <PoemsContainer poems={this.state.poems} />
+        <PoemsContainer poems={this.state.poems}  /> 
       </div>
     ); 
   }

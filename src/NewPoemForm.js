@@ -2,6 +2,8 @@ import React from 'react';
 
 class NewPoemForm extends React.Component {
 
+  //thought about making a container for the form to hold the state, but seemed a little overkill//
+  
   state={
     title: "",
     content: ""

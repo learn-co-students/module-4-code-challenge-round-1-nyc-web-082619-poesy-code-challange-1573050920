@@ -10,7 +10,7 @@ class App extends React.Component {
   state={
     poems: [],
     user: null,
-    userInput: ""
+    userInput: "" //handles input for login form
   }
 
   componentDidMount(){
@@ -54,8 +54,9 @@ class App extends React.Component {
     fetch("http://localhost:3000/poems", fetchObj).then(res=>res.json())
     .then(newPoem=>{this.setState(prevProps=>{
       return {poems: [...prevProps.poems, newPoem]}
-      })
-    })}else{
+    })})} 
+      
+    else {
       alert("Please Log in Before Submitting a new Poem")
     }
   }
@@ -95,8 +96,15 @@ class App extends React.Component {
           }
           <NewPoemForm addPoem={this.addPoem}/>
         </div>
-        <PoemsContainer poems={poems} readPoem={this.readPoem} like={this.likePoem}/>
-        <PoemsContainer poems={poems.filter(poem=>poem.liked)} readPoem={this.readPoem}/>
+        <PoemsContainer //regular container
+          poems={poems} 
+          readPoem={this.readPoem} 
+          like={this.likePoem}
+        />
+        <PoemsContainer //favorites container
+          poems={poems.filter(poem=>poem.liked)} 
+          readPoem={this.readPoem}
+        />
       </div>
     ); 
   }

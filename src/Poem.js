@@ -1,8 +1,9 @@
 import React from 'react';
 
-class Poem extends React.Component {
-  render(){
-    const { id, title, content, author, read, readPoem, like } = this.props
+const Poem = (props) => {
+
+    const { id, title, content, author, read, readPoem, like } = props
+
     return (
       <div style={{color: read ? "red" : "black"}} onClick={()=>readPoem(id)}>
         <h3>{ title }</h3>
@@ -12,7 +13,6 @@ class Poem extends React.Component {
         {like ? <button onClick={()=>like(id)}>Like</button> : null }
       </div>
     ); 
-  }
 }
 
 export default Poem;

@@ -1,31 +1,25 @@
 import React from 'react';
 import Poem from './Poem';
 
-class PoemsContainer extends React.Component {
+const PoemsContainer = (props) => {
 
-  incrementer = 0
-
-  renderPoems=()=>{
-    return this.props.poems.map(poem=>{
+  const renderPoems=()=>{
+    return props.poems.map(poem=>{
       return ( 
       <Poem 
         {...poem} 
-        key={this.incrementer++} 
-        readPoem={this.props.readPoem}
-        like={this.props.like}
+        key={poem.id} 
+        readPoem={props.readPoem}
+        like={props.like}
       />
     )})
   }
 
-  render(){
     return (
       <div className="poems-container">
-        {
-         this.renderPoems()
-        }
+        { renderPoems() }
       </div>
     ); 
-  }
 }
 
 export default PoemsContainer;

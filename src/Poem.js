@@ -5,9 +5,16 @@ class Poem extends React.Component {
     read: false
   };
 
-  handleClick = () => {
-    this.setState(prevState => ({ read: !prevState.read }));
+  handleAction = () => {
+    this.props.action(this.props.id);
   };
+
+  handleClick = e => {
+    if (e.target.className !== "like-button") {
+      this.setState(prevState => ({ read: !prevState.read }));
+    }
+  };
+
   render() {
     return (
       <div
@@ -17,6 +24,9 @@ class Poem extends React.Component {
         <h3>{this.props.title}</h3>
         <p>{this.props.content}</p>
         <strong>- By {this.props.author}</strong>
+        <div onClick={this.handleAction} className="like-button">
+          &#9829;
+        </div>
       </div>
     );
   }

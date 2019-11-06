@@ -1,6 +1,6 @@
 .app {
   display: grid;
-  grid-template-columns: 2fr 4fr;
+  grid-template-columns: 2fr 4fr 4fr;
   justify-items: center;
 }
 
@@ -8,7 +8,6 @@
   width: 100%;
   text-align: center;
   justify-content: center;
-  border-style: solid;
 }
 
 .login {
@@ -20,9 +19,8 @@
 
 .login-form {
   height: 100%;
-  width: 100%
+  width: 100%;
 }
-
 
 .user-header {
   padding: 2vw;
@@ -49,9 +47,19 @@
 
 .poems-container > * {
   border-style: solid;
+  display: flex;
+  flex-direction: column;
   padding: 2vw;
   margin: 1vw;
 }
 .poems-container {
   padding: 2vw;
+}
+.like-button {
+  align-self: center;
+  margin: 8px;
+  cursor: pointer;
+}
+.like-button:hover {
+  color: red;
 }

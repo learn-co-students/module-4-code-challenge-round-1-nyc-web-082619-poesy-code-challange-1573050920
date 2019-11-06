@@ -69,6 +69,15 @@ class App extends React.Component {
     })
   }
 
+  likePoem = (id) => {
+    this.setState(prevProps=>{
+      return {poems: prevProps.poems.map(poem=>{
+        if(poem.id === id) return {...poem, liked: !poem.liked}
+        else return poem
+      })}
+    })
+  }
+
   render(){
     console.log(this.state.poems)
     const { user, userInput, poems } = this.state
@@ -86,7 +95,8 @@ class App extends React.Component {
           }
           <NewPoemForm addPoem={this.addPoem}/>
         </div>
-        <PoemsContainer poems={poems} readPoem={this.readPoem}/>
+        <PoemsContainer poems={poems} readPoem={this.readPoem} like={this.likePoem}/>
+        <PoemsContainer poems={poems.filter(poem=>poem.liked)} readPoem={this.readPoem}/>
       </div>
     ); 
   }

@@ -12,6 +12,7 @@ class PoemsContainer extends React.Component {
         {...poem} 
         key={this.incrementer++} 
         readPoem={this.props.readPoem}
+        like={this.props.like}
       />
     )})
   }

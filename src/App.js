@@ -39,10 +39,25 @@ class App extends React.Component {
   }
 
   addPoem = (title, content) => {
+    if(this.state.user){
     const poem = {title, content, author: this.state.user}
-    this.setState(prevProps=>{
-      return {poems: [...prevProps.poems, poem]}
-    })
+    
+    const fetchObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accepts": "application/json"
+      },
+      body: JSON.stringify(poem)
+    }
+
+    fetch("http://localhost:3000/poems", fetchObj).then(res=>res.json())
+    .then(newPoem=>{this.setState(prevProps=>{
+      return {poems: [...prevProps.poems, newPoem]}
+      })
+    })}else{
+      alert("Please Log in Before Submitting a new Poem")
+    }
   }
 
   readPoem = (id) => {

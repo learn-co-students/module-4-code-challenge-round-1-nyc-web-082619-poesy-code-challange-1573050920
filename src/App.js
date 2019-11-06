@@ -34,10 +34,10 @@ class App extends React.Component {
   }
 
   submitNewPoem = (event, newPoemTitle, newPoemContent) => {
-      if(this.state.login !== ""){
+      if (this.state.login !== ""){
           event.preventDefault()
 
-          this.setState({
+            this.setState({
           poems: [...this.state.poems, {author: this.state.login ,title: newPoemTitle, content: newPoemContent}]
       })
   }

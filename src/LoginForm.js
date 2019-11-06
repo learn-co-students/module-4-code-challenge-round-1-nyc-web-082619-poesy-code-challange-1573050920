@@ -1,15 +1,19 @@
-import React from 'react';
+import React from "react";
 
 class LoginForm extends React.Component {
-  render(){
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.login(event.target.username.value);
+  };
+  render() {
     return (
       <div className="login">
-        <form className="login-form">
-          <input placeholder="Enter a username..." />
-          <input type="submit" value="Log In"/>
+        <form onSubmit={this.handleSubmit} className="login-form">
+          <input name="username" placeholder="Enter a username..." />
+          <input type="submit" value="Log In" />
         </form>
       </div>
-    ); 
+    );
   }
 }
 

@@ -1,15 +1,14 @@
-import React from 'react';
-import Poem from './Poem';
+import React from "react";
+import Poem from "./Poem";
 
 class PoemsContainer extends React.Component {
-  render(){
-    return (
-      <div className="poems-container">
-        {
-         /* render poems here*/
-        }
-      </div>
-    ); 
+  renderPoems = () => {
+    return this.props.poems.map(poem => {
+      return <Poem key={poem.id} {...poem} />;
+    });
+  };
+  render() {
+    return <div className="poems-container">{this.renderPoems()}</div>;
   }
 }
 
